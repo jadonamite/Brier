@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
-import { Providers } from "@/components/Providers";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
 
@@ -34,7 +33,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           enableSystem={false}
           disableTransitionOnChange
         >
-          <Providers>{children}</Providers>
+          {children}
         </ThemeProvider>
       </body>
     </html>
