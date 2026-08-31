@@ -100,45 +100,138 @@ fn f1_score(answer: &str, ground_truth: &str) -> f32 {
     }
 }
 
-fn extract_confidence(answer: &str) -> Option<f32> {
-    let target = "\"confidence\":";
-    if let Some(idx) = answer.find(target) {
-        let after = &answer[idx + target.len()..];
-        let after = after.trim_start();
-        
-        let mut end_idx = 0;
-        for (i, c) in after.char_indices() {
-            if c.is_ascii_digit() || c == '.' {
-                end_idx = i + c.len_utf8();
-            } else {
-                break;
-            }
+const CONF_KEY: &str = "confidence";
+
+/// Locates the confidence field: returns (start of the key, end of its number).
+fn find_conf(s: &str) -> Option<(usize, usize)> {
+    let k = s.find(CONF_KEY)?;
+    let b = s.as_bytes();
+    let start = if k > 0 && b[k - 1] == b'"' { k - 1 } else { k };
+
+    let mut i = k + CONF_KEY.len();
+    while i < b.len() && b[i] != b':' {
+        if b[i] != b'"' && !b[i].is_ascii_whitespace() {
+            return None;
         }
-        
-        if end_idx > 0 {
-            let num_str = &after[..end_idx];
-            if let Ok(num) = num_str.parse::<f32>() {
-                return Some(num);
-            }
-        }
+        i += 1;
     }
-    None
+    if i >= b.len() {
+        return None;
+    }
+    i += 1;
+    while i < b.len() && b[i].is_ascii_whitespace() {
+        i += 1;
+    }
+    let num_start = i;
+    while i < b.len() && (b[i].is_ascii_digit() || b[i] == b'.') {
+        i += 1;
+    }
+    if i == num_start {
+        return None;
+    }
+    Some((start, i))
 }
+
+fn push_bytes(src: &str, buf: &mut [u8], mut len: usize) -> usize {
+    for b in src.bytes() {
+        if len >= buf.len() {
+            break;
+        }
+        buf[len] = b;
+        len += 1;
+    }
+    len
+}
+
+/// Reads the quoted value of `key`, if the miner returned a structured answer.
+fn quoted_value<'a>(s: &'a str, key: &str) -> Option<&'a str> {
+    let k = s.find(key)?;
+    let b = s.as_bytes();
+    let mut i = k + key.len();
+    while i < b.len() && b[i].is_ascii_whitespace() {
+        i += 1;
+    }
+    if i >= b.len() || b[i] != b'"' {
+        return None;
+    }
+    i += 1;
+    let vs = i;
+    while i < b.len() && b[i] != b'"' {
+        i += 1;
+    }
+    s.get(vs..i)
+}
+
+/// Copies the answer's content into `buf`, dropping the confidence metadata. The declared
+/// probability is a claim about the answer, not part of it, and must not be scored as text.
+fn extract_content(answer: &str, buf: &mut [u8]) -> usize {
+    if let Some(v) = quoted_value(answer, "\"answer\":") {
+        return push_bytes(v, buf, 0);
+    }
+    match find_conf(answer) {
+        Some((start, end)) => {
+            let len = push_bytes(&answer[..start], buf, 0);
+            push_bytes(&answer[end..], buf, len)
+        }
+        None => push_bytes(answer, buf, 0),
+    }
+}
+
+/// Accepts both the 0-1 and the percentage convention. A miner reporting 85 rather than
+/// 0.85 is using a different scale, not making a different claim.
+fn normalize_conf(c: f32) -> f32 {
+    let c = if c > 1.0 && c <= 100.0 { c / 100.0 } else { c };
+    if c < 0.0 {
+        0.0
+    } else if c > 1.0 {
+        1.0
+    } else {
+        c
+    }
+}
+
+fn extract_confidence(answer: &str) -> Option<f32> {
+    let (_, end) = find_conf(answer)?;
+    let b = answer.as_bytes();
+    let mut s = end;
+    while s > 0 && (b[s - 1].is_ascii_digit() || b[s - 1] == b'.') {
+        s -= 1;
+    }
+    let raw = answer.get(s..end)?.parse::<f32>().ok()?;
+    Some(normalize_conf(raw))
+}
+
+const CALIBRATION_WEIGHT: f32 = 1.0;
 
 fn score(ground_truth: &str, miner_answer: &str) -> f32 {
     if miner_answer == ground_truth {
         return 1.0;
     }
 
-    let base_score = f1_score(miner_answer, ground_truth);
-    
-    if let Some(conf) = extract_confidence(miner_answer) {
-        let diff = conf - base_score;
-        let brier = 1.0 - (diff * diff);
-        return brier.clamp(0.0, 1.0);
+    let mut content = [0u8; 32768];
+    let n = extract_content(miner_answer, &mut content);
+    let text = core::str::from_utf8(&content[..n]).unwrap_or(miner_answer);
+
+    let accuracy = f1_score(text, ground_truth);
+
+    match extract_confidence(miner_answer) {
+        // Calibration modulates accuracy, it never substitutes for it. An answer carrying
+        // nothing true scores nothing, however well it predicted its own failure -- and
+        // because the multiplier is fixed in the forecast, reporting the honest
+        // probability is still the strictly optimal report.
+        Some(conf) => {
+            let err = conf - accuracy;
+            let calibrated = accuracy * (1.0 - CALIBRATION_WEIGHT * err * err);
+            if calibrated < 0.0 {
+                0.0
+            } else if calibrated > 1.0 {
+                1.0
+            } else {
+                calibrated
+            }
+        }
+        None => accuracy,
     }
-    
-    base_score
 }
 
 #[unsafe(no_mangle)]

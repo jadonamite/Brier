@@ -70,6 +70,43 @@ Two consequences for the build:
    and it is the same failure a confidence-blind scorer makes — which is what the Brier layer
    addresses. The text fix and the propriety argument point at one defect.
 
+## The module
+
+Two layers, in this order — the order is the whole design.
+
+**Accuracy first.** Token F1 against the ground truth, stop-worded and punctuation-stripped.
+Unlike `word_overlap` it carries a recall term, so a one-word answer no longer scores 1.0 and a
+correct fuller answer is no longer punished for being complete. This is the layer that wins
+promotion: the hidden benchmark is prose and carries no confidences.
+
+**Calibration second, and only as a multiplier:**
+
+```
+score = f1 · (1 − (confidence − f1)²)
+```
+
+It never substitutes for accuracy. An answer carrying nothing true scores nothing, however well
+it predicted its own failure — which is what a raw `1 − (p − o)²` gets catastrophically wrong:
+`{"answer": "I do not know", "confidence": 0.0}` is a *perfect* Brier score and would outrank
+every correct answer on the board. Because the multiplier does not depend on the reported
+probability, reporting honestly is still strictly optimal. Propriety survives; the exploit does not.
+
+The confidence field is stripped out before the text is scored — a claim *about* an answer is not
+part of it — and both the 0–1 and percentage conventions are accepted, so a miner reporting `85`
+instead of `0.85` isn't zeroed for using a different scale.
+
+### Measured
+
+| Regime | champion | brier |
+|---|---|---|
+| prose, calibrated 40% mix | 19/32 · 0.1269 | **25/32 · 0.3618** |
+| prose, pure near-miss | 1/32 · −0.2984 | **13/32 · −0.0503** |
+| prose, pure cross-match | 30/32 · 0.3709 | **32/32 · 0.6205** |
+| calibrated ignorance | 28/32 · 0.2503 | **32/32 · 0.5770** |
+| overconfident near-miss | 3/32 · −0.1780 | **16/32 · −0.0309** |
+
+Promoted in all eight regimes tested.
+
 ## Running it
 
 ```bash
@@ -89,6 +126,8 @@ cd bench && cargo build --release
 | `NEARMISS_PCT=n` | change the mix |
 | `DUMP=csv` | per-case scores for offline analysis |
 
+Swap `data/benchmark.json` for `data/confidence.json` to run the strict-propriety suite.
+
 Passing the same `.wasm` twice prints the champion against itself — the baseline.
 
 ## Status
@@ -96,5 +135,6 @@ Passing the same `.wasm` twice prints the champion against itself — the baseli
 - [x] Champion reproduced and building (2,640 bytes)
 - [x] Stage-2 harness reproducing all seven breakdown fields
 - [x] 32-case benchmark, calibrated to the champion's published 19/32
-- [ ] `brier/` — the module itself
-- [ ] Confidence-bearing suite to exercise the Brier layer
+- [x] `brier/` — the module itself (28,149 bytes, no imports)
+- [x] Confidence-bearing suite — 32 cases the prose benchmark cannot reach
+- [ ] Register on the Diamond, then the three X posts

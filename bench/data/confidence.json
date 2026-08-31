@@ -1,0 +1,261 @@
+{
+ "note": "Confidence-bearing companion to benchmark.json, exercising the strict-propriety layer that the prose benchmark never touches. Same 32 questions, but every answer carries the protocol's `confidence` field. `bad` is CALIBRATED IGNORANCE -- a worthless answer that correctly predicts its own worthlessness (confidence 0.0); a scorer that returns raw Brier ranks it at 1.0, above a correct answer. `bad_unrelated` is the OVERCONFIDENT NEAR-MISS -- a plausible-wrong answer asserted at 0.99, which is the dominant strategy under the word-overlap champion. A module must beat both.",
+ "cases": [
+  {
+   "q": "What is the capital of France?",
+   "gt": "Paris is the capital of France.",
+   "good": "{\"answer\": \"The capital of France is Paris.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Berlin is the capital of Germany.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Who wrote the play Hamlet?",
+   "gt": "Hamlet was written by William Shakespeare.",
+   "good": "{\"answer\": \"William Shakespeare wrote Hamlet.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Hamlet was written by Christopher Marlowe.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the chemical symbol for gold?",
+   "gt": "The chemical symbol for gold is Au.",
+   "good": "{\"answer\": \"Gold has the symbol Au on the periodic table.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The chemical symbol for gold is Ag.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "How many continents are there?",
+   "gt": "There are seven continents.",
+   "good": "{\"answer\": \"Seven continents exist on Earth.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"There are five continents.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the largest planet in the solar system?",
+   "gt": "Jupiter is the largest planet in the solar system.",
+   "good": "{\"answer\": \"The solar system's largest planet is Jupiter.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Saturn is the largest planet in the solar system.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "In what year did the Second World War end?",
+   "gt": "The Second World War ended in 1945.",
+   "good": "{\"answer\": \"It ended in 1945.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The Second World War ended in 1918.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the boiling point of water at sea level in Celsius?",
+   "gt": "Water boils at 100 degrees Celsius at sea level.",
+   "good": "{\"answer\": \"At sea level water boils at 100 C.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Water boils at 50 degrees Celsius at sea level.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Which ocean is the largest?",
+   "gt": "The Pacific Ocean is the largest ocean.",
+   "good": "{\"answer\": \"The largest ocean is the Pacific.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The Atlantic Ocean is the largest ocean.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What language is primarily spoken in Brazil?",
+   "gt": "Portuguese is the primary language spoken in Brazil.",
+   "good": "{\"answer\": \"Brazilians mainly speak Portuguese.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Spanish is the primary language spoken in Brazil.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Who painted the Mona Lisa?",
+   "gt": "The Mona Lisa was painted by Leonardo da Vinci.",
+   "good": "{\"answer\": \"Leonardo da Vinci is the painter of the Mona Lisa.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The Mona Lisa was painted by Michelangelo.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the capital of Nigeria?",
+   "gt": "Abuja is the capital of Nigeria.",
+   "good": "{\"answer\": \"Nigeria's capital city is Abuja.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Lagos is the capital of Nigeria.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "How many sides does a hexagon have?",
+   "gt": "A hexagon has six sides.",
+   "good": "{\"answer\": \"Six sides make a hexagon.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"A hexagon has eight sides.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What gas do plants absorb during photosynthesis?",
+   "gt": "Plants absorb carbon dioxide during photosynthesis.",
+   "good": "{\"answer\": \"During photosynthesis plants take in carbon dioxide.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Plants absorb oxygen during photosynthesis.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Who developed the theory of general relativity?",
+   "gt": "Albert Einstein developed the theory of general relativity.",
+   "good": "{\"answer\": \"General relativity was developed by Albert Einstein.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Isaac Newton developed the theory of general relativity.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the smallest prime number?",
+   "gt": "The smallest prime number is two.",
+   "good": "{\"answer\": \"Two is the smallest prime.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The smallest prime number is one.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Which planet is known as the Red Planet?",
+   "gt": "Mars is known as the Red Planet.",
+   "good": "{\"answer\": \"The Red Planet is Mars.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Venus is known as the Red Planet.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What currency is used in Japan?",
+   "gt": "The currency used in Japan is the yen.",
+   "good": "{\"answer\": \"Japan uses the yen.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The currency used in Japan is the won.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "How many players are on a football team on the pitch?",
+   "gt": "A football team has eleven players on the pitch.",
+   "good": "{\"answer\": \"Eleven players per side take the pitch.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"A football team has nine players on the pitch.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the longest river in Africa?",
+   "gt": "The Nile is the longest river in Africa.",
+   "good": "{\"answer\": \"Africa's longest river is the Nile.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The Congo is the longest river in Africa.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Who was the first person to walk on the moon?",
+   "gt": "Neil Armstrong was the first person to walk on the moon.",
+   "good": "{\"answer\": \"The first man on the moon was Neil Armstrong.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Buzz Aldrin was the first person to walk on the moon.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What does DNA stand for?",
+   "gt": "DNA stands for deoxyribonucleic acid.",
+   "good": "{\"answer\": \"It stands for deoxyribonucleic acid.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"DNA stands for dinitrogen acid.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Which country gifted the Statue of Liberty to the United States?",
+   "gt": "France gifted the Statue of Liberty to the United States.",
+   "good": "{\"answer\": \"It was a gift from France.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Britain gifted the Statue of Liberty to the United States.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the freezing point of water in Fahrenheit?",
+   "gt": "Water freezes at 32 degrees Fahrenheit.",
+   "good": "{\"answer\": \"The freezing point is 32 F.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Water freezes at 100 degrees Fahrenheit.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "How many bones are in the adult human body?",
+   "gt": "The adult human body has 206 bones.",
+   "good": "{\"answer\": \"There are 206 bones in an adult.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The adult human body has 300 bones.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the tallest mountain above sea level?",
+   "gt": "Mount Everest is the tallest mountain above sea level.",
+   "good": "{\"answer\": \"Everest is the tallest peak above sea level.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"K2 is the tallest mountain above sea level.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Which element has the atomic number one?",
+   "gt": "Hydrogen has the atomic number one.",
+   "good": "{\"answer\": \"The element with atomic number 1 is hydrogen.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Helium has the atomic number one.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the main ingredient in guacamole?",
+   "gt": "The main ingredient in guacamole is avocado.",
+   "good": "{\"answer\": \"Guacamole is made mostly from avocado.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The main ingredient in guacamole is tomato.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "In which city is the Colosseum located?",
+   "gt": "The Colosseum is located in Rome.",
+   "good": "{\"answer\": \"You will find the Colosseum in Rome, Italy.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The Colosseum is located in Athens.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Summarize why the sky appears blue.",
+   "gt": "The sky appears blue because shorter blue wavelengths of sunlight are scattered more strongly by air molecules than longer wavelengths.",
+   "good": "{\"answer\": \"Air molecules scatter short wavelengths far more than long ones, so blue light reaches our eyes from all directions.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"The sky appears blue because it reflects the color of the oceans below it.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Explain what causes ocean tides.",
+   "gt": "Ocean tides are caused mainly by the gravitational pull of the moon and to a lesser extent the sun on the Earth's water.",
+   "good": "{\"answer\": \"The moon's gravity, helped by the sun's, tugs on the oceans and raises the tides.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Ocean tides are caused by underwater volcanoes heating the water and making it rise.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "What is the difference between weather and climate?",
+   "gt": "Weather is the state of the atmosphere over hours to days, while climate is the average of weather over decades.",
+   "good": "{\"answer\": \"Weather is what happens day to day; climate is the long-run average of that weather over many years.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Weather and climate are the same thing measured by different instruments.\", \"confidence\": 0.99}"
+  },
+  {
+   "q": "Why do leaves change color in autumn?",
+   "gt": "Leaves change color in autumn because chlorophyll breaks down, revealing the yellow and orange pigments already present.",
+   "good": "{\"answer\": \"As chlorophyll degrades in the fall, the underlying carotenoid pigments become visible.\", \"confidence\": 0.9}",
+   "bad": "{\"answer\": \"I do not know\", \"confidence\": 0.0}",
+   "bad_kind": "calibrated_ignorance",
+   "bad_unrelated": "{\"answer\": \"Leaves change color in autumn because the cold freezes the water inside them and stains them brown.\", \"confidence\": 0.99}"
+  }
+ ]
+}
