@@ -3,11 +3,13 @@ import Feature01 from "@/components/shadcn-space/blocks/feature-01";
 import AboutAndStats01 from "@/components/shadcn-space/blocks/about-us-01";
 import Faq from "@/components/shadcn-space/blocks/faq-01/faq";
 import Footer from "@/components/shadcn-space/blocks/footer-01/footer";
+import { Playground } from "@/components/Playground";
 
 export default function Page() {
   return (
     <>
       <AgencyHeroSection />
+      <Playground />
       <Feature01 />
       <AboutAndStats01 />
       <Faq />
