@@ -27,12 +27,11 @@ const Feature = ({ featureData }: { featureData: Features }) => {
             >
               <div className="flex flex-col gap-4 max-w-full items-center text-center md:max-w-xl">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight">
-                  Documents in, payment out
+                  Confidence in, truth out
                 </h2>
                 <p className="text-base font-normal text-muted-foreground">
-                  Open the credit, name the terms, and the contract does the rest.
-                  A presentation that conforms is paid in the same transaction; one
-                  that does not is refused on the record, with the reason attached.
+                  Deploy the module, configure the semantic threshold, and let mathematics enforce honesty.
+                  A prediction that correctly calibrates confidence is rewarded; one that overstates its certainty is heavily penalized on the record.
                 </p>
               </div>
             </motion.div>
@@ -55,16 +54,15 @@ const Feature = ({ featureData }: { featureData: Features }) => {
                       </AvatarFallback>
                     </Avatar>
                     <h3 className="text-xl sm:text-2xl font-medium">
-                      &ldquo;Banks deal with documents and not with goods, services
-                      or performance to which the documents may relate.&rdquo;
+                      &ldquo;A scoring rule is strictly proper if and only if it gives the forecaster the maximum expected score when they state their true probability.&rdquo;
                     </h3>
                   </CardContent>
                   <CardFooter className="bg-card border-none w-full px-6 sm:px-8 py-0 flex flex-col items-start gap-0.5">
                     <p className="text-sm font-medium text-primary">
-                      UCP 600 · ARTICLE 5
+                      GLENN W. BRIER
                     </p>
                     <span className="text-xs font-normal text-muted-foreground uppercase">
-                      INTERNATIONAL CHAMBER OF COMMERCE · IN FORCE 2007
+                      VERIFICATION OF FORECASTS EXPRESSED IN TERMS OF PROBABILITY · 1950
                     </span>
                   </CardFooter>
                 </Card>

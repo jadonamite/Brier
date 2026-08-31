@@ -18,6 +18,8 @@ type FooterSection = {
   links: { title: string; href: string }[];
 };
 
+import { BrierLogo } from "@/components/BrierLogo";
+
 const footerSections: FooterSection[] = [
   {
     title: "Product",
@@ -45,7 +47,7 @@ const Footer = () => {
             <div className="col-span-full lg:col-span-4">
               <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-100 ease-in-out fill-mode-both">
                 <a href="/" className="flex items-center gap-2" aria-label="Brier">
-                  <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+                  <BrierLogo />
                   <span className="font-semibold text-lg tracking-tight">Brier</span>
                 </a>
                 <p className="text-base font-normal text-muted-foreground">

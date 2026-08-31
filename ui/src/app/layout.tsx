@@ -14,10 +14,10 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Lading — a documentary credit, settled by contract",
+  title: "Brier — A strictly proper scoring module",
   description:
-    "A letter of credit on BOT Chain. The applicant funds it; the beneficiary is paid the instant conforming documents are presented; the applicant is refunded if they never are. No administrator, no release button, no discretion.",
-  icons: { icon: "/Lading.png" },
+    "A no_std Rust WASM module for Telegraph Protocol. Overcomes word_overlap vulnerabilities by evaluating semantic recall and mathematically penalizing overconfident predictions using the Brier score.",
+  icons: { icon: "/favicon.svg" },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

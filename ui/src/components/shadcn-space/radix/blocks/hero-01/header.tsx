@@ -10,6 +10,8 @@ import { Icon } from "@iconify/react";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 
+import { BrierLogo } from "@/components/BrierLogo";
+
 export type NavigationSection = {
   title: string;
   href: string;
@@ -30,7 +32,7 @@ const OpenAppButton = ({ className }: { className?: string }) => (
       className,
     )}
   >
-    <span className="relative z-10 transition-all duration-500">View Source</span>
+    <span className="relative z-10 transition-all duration-500">Integrate Brier</span>
     <span className="absolute right-1 w-8 h-8 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-36px)] group-hover:rotate-45">
       <ArrowUpRight size={16} />
     </span>
@@ -80,10 +82,10 @@ const Header = ({ navigationData, className }: HeaderProps) => {
       >
         {/* Logo */}
         <div>
-          <a href="/" className="flex items-center gap-2" aria-label="Brier">
-            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
-            <span className="font-semibold text-lg tracking-tight">Brier</span>
-          </a>
+                  <a href="/" className="flex items-center gap-2" aria-label="Brier">
+                    <BrierLogo />
+                    <span className="font-semibold text-lg tracking-tight">Brier</span>
+                  </a>
         </div>
 
         {/* Desktop Navigation */}
@@ -127,7 +129,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
               >
                 <div className="flex items-center justify-between p-6">
                   <a href="/" className="flex items-center gap-2" aria-label="Brier">
-                    <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+                    <BrierLogo />
                     <span className="font-semibold text-lg tracking-tight">Brier</span>
                   </a>
                   <SheetClose id="mobile-menu-close">
