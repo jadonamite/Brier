@@ -23,13 +23,14 @@ type HeaderProps = {
 
 const OpenAppButton = ({ className }: { className?: string }) => (
   <Link
-    href="/open"
+    href="https://github.com/jadonamite/Brier"
+    target="_blank"
     className={cn(
       "relative inline-flex items-center text-sm font-medium rounded-full h-10 p-1 ps-4 pe-12 group transition-all duration-500 hover:ps-12 hover:pe-4 w-fit overflow-hidden bg-primary text-primary-foreground hover:bg-primary/80",
       className,
     )}
   >
-    <span className="relative z-10 transition-all duration-500">Open a credit</span>
+    <span className="relative z-10 transition-all duration-500">View Source</span>
     <span className="absolute right-1 w-8 h-8 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-36px)] group-hover:rotate-45">
       <ArrowUpRight size={16} />
     </span>
@@ -79,8 +80,9 @@ const Header = ({ navigationData, className }: HeaderProps) => {
       >
         {/* Logo */}
         <div>
-          <a href="/" className="flex items-center" aria-label="Lading">
-            <img src="/Lading.png" alt="Lading" className="h-7 w-auto" />
+          <a href="/" className="flex items-center gap-2" aria-label="Brier">
+            <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+            <span className="font-semibold text-lg tracking-tight">Brier</span>
           </a>
         </div>
 
@@ -124,8 +126,9 @@ const Header = ({ navigationData, className }: HeaderProps) => {
                 className="w-full sm:w-96 p-0 border-l-0"
               >
                 <div className="flex items-center justify-between p-6">
-                  <a href="/" className="flex items-center" aria-label="Lading">
-                    <img src="/Lading.png" alt="Lading" className="h-7 w-auto" />
+                  <a href="/" className="flex items-center gap-2" aria-label="Brier">
+                    <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+                    <span className="font-semibold text-lg tracking-tight">Brier</span>
                   </a>
                   <SheetClose id="mobile-menu-close">
                     <span className="rounded-full border border-border p-2.5 block">
@@ -176,7 +179,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
                   <div className="mt-auto flex flex-col gap-4">
                     <div className="flex gap-3">
                       {[
-                        { icon: "lucide:github", label: "GitHub", href: "https://github.com/jadonamite/lading" },
+                        { icon: "lucide:github", label: "GitHub", href: "https://github.com/jadonamite/Brier" },
                         { icon: "lucide:twitter", label: "X", href: "https://x.com/jadonamite" },
                       ].map(({ icon, label, href }) => (
                         <a
@@ -193,7 +196,7 @@ const Header = ({ navigationData, className }: HeaderProps) => {
                     </div>
 
                     <p className="text-sm text-muted-foreground">
-                      © 2026 Lading
+                      © 2026 Brier
                     </p>
                   </div>
                 </div>

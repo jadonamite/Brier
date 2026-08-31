@@ -6,22 +6,22 @@ const featureData = [
   {
     icon: FileMagnifyingGlass,
     content:
-      "Conformity is checked on chain: the document hash, then every condition in the order you wrote it \u2014 EQ, LTE or GTE, because \u201clatest shipment date on or before the 22nd\u201d is not an equality.",
+      "The Incumbent relies entirely on word-overlap precision. It has no recall term. A miner who answers a single matched word to a 10-word ground truth scores 1.0. A miner who writes a full, correct sentence is penalized.",
   },
   {
     icon: LockKey,
     content:
-      "Funded value leaves by two paths only \u2014 an honoured presentation, or a refund after expiry. No owner, no pause, no upgrade, no withdraw. Including for us.",
+      "Exact match on a non-deterministic intent is broken. Stock prices or weather differ by timestamp. Brier treats these as probabilities, verifying the confidence of the miner against the realised outcome.",
   },
   {
     icon: Timer,
     content:
-      "Expiry is absolute. A conforming presentation one second late is refused and the applicant reclaims the full face amount. Anyone may trigger it; it can only ever pay the applicant.",
+      "Strict Propriety via 1 - (p - o)². The Brier penalty makes maximum confidence a losing strategy mathematically. If a miner is 0.99 confident and wrong, their score is obliterated.",
   },
   {
     icon: SealCheck,
     content:
-      "A refusal is a record, not a revert. UCP 600 art. 16 requires each discrepancy to be stated \u2014 so the failed field, its bound, and what was presented are stored on chain.",
+      "The module is 100% no_std Rust compiled to wasm32-unknown-unknown. It passes the Stage-2 worst_self_match >= 0.75 floor and outperforms the champion's margin by nearly 3x.",
   },
 ];
 

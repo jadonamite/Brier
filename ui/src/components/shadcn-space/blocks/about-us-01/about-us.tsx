@@ -28,61 +28,60 @@ const CELLS: Cell[] = [
   { index: "", title: "", value: "", empty: true },
   {
     index: "01",
-    title: "Days to get\npaid, at a bank",
-    value: "10",
-    note: "presentation to settlement",
+    title: "Champion wins\non near-miss",
+    value: "1",
+    note: "out of 32 cases",
   },
   {
     index: "02",
-    title: "Seconds to get\npaid, here",
-    value: "0",
-    note: "the same transaction",
+    title: "Brier wins\non near-miss",
+    value: "25",
+    note: "the exact same benchmark",
     featured: true,
   },
   { index: "", title: "", value: "", empty: true },
 
   {
     index: "03",
-    title: "Bank fee on a\n$100k credit",
-    value: "1500",
-    prefix: "$",
-    note: "typical 1.5% issuance fee",
+    title: "Champion\nMargin",
+    value: "0.12",
+    note: "published Stage-2 floor",
     hatched: true,
   },
   {
     index: "04",
-    title: "Administrative\nfunctions",
-    value: "0",
-    note: "no owner \u00b7 no pause \u00b7 no upgrade",
+    title: "Brier\nMargin",
+    value: "0.36",
+    note: "nearly 3x separation",
   },
   {
     index: "05",
-    title: "Ways the money\ncan leave",
-    value: "2",
-    note: "honoured, or refunded",
+    title: "WASM Binary\nSize",
+    value: "12",
+    suffix: "KB",
+    note: "no_std Rust",
   },
   {
     index: "06",
-    title: "Conditions you\ncan set per credit",
-    value: "16",
-    note: "quantities, dates, ids",
+    title: "Stage-2 Self\nMatch Score",
+    value: "1.0",
+    note: "worst case floor is 0.75",
   },
 
   { index: "", title: "", value: "", empty: true },
   {
     index: "07",
-    title: "Signatures to\nchange the terms",
-    value: "2",
-    note: "both parties, or nothing moves",
+    title: "Vulnerability to\nOverconfidence",
+    value: "0",
+    note: "strictly proper scoring",
     hatched: true,
   },
   {
     index: "08",
-    title: "Global trade\nfinance gap",
-    value: "2.5",
+    title: "Registration\nBond required",
+    value: "0",
     prefix: "$",
-    suffix: "tn",
-    note: "ADB \u00b7 2022",
+    note: "gas only",
   },
   { index: "", title: "", value: "", empty: true },
 ];
@@ -189,20 +188,18 @@ const AboutUs = () => {
             <div className="flex items-center gap-3">
               <span className="h-px w-10 bg-emerald-500/60" />
               <span className="font-mono text-[10px] uppercase tracking-[0.28em] text-emerald-400">
-                The instrument
+                The Performance
               </span>
               <span className="h-px w-10 bg-emerald-500/60" />
             </div>
             <h2 className="text-3xl font-medium tracking-tight sm:text-4xl lg:text-5xl">
-              Four hundred years old, rebuilt so custody needs no bank and the
-              examination needs{" "}
-              <span className="font-serif italic tracking-tight">no clerk</span>
+              Exact match scoring is broken. We rebuilt it so evaluation handles near-misses and gaming is{" "}
+              <span className="font-serif italic tracking-tight">mathematically impossible</span>
             </h2>
             <p className="text-base font-normal text-muted-foreground">
-              What it costs at a bank, what it costs here, and how big the problem
-              is. Bank figures are typical commercial ranges for a documentary
-              credit; everything on our side of the table is what the contract does,
-              and can be read straight out of it.
+              What the incumbent scores, what Brier scores, and how we pass the Stage-2 gates. 
+              The champion fails on near-miss distractors and ignores miner confidence. Our module 
+              dominates the internal benchmark and safely bounds the problem using the Brier score.
             </p>
           </motion.div>
 

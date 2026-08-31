@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import { activeChain, addrUrl, LADING_ADDRESS } from "@/lib/chain";
 
 const TwitterIcon = () => (
   <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -23,16 +22,16 @@ const footerSections: FooterSection[] = [
   {
     title: "Product",
     links: [
-      { title: "How it works", href: "#how-it-works" },
-      { title: "Open a credit", href: "/open" },
+      { title: "Demo", href: "#demo" },
+      { title: "Features", href: "#features" },
       { title: "FAQ", href: "#faq" },
     ],
   },
   {
-    title: "Legal",
+    title: "Code",
     links: [
-      { title: "What it does not claim", href: "/about" },
-      { title: "Source (MIT)", href: "https://github.com/jadonamite/lading" },
+      { title: "Source (MIT)", href: "https://github.com/jadonamite/Brier" },
+      { title: "Telegraph Protocol", href: "https://telegraphprotocol.com/" },
     ],
   },
 ];
@@ -45,15 +44,18 @@ const Footer = () => {
           <div className="py-12 grid grid-cols-2 sm:grid-cols-4 md:grid-cols-7 lg:grid-cols-12 gap-x-8 gap-y-10 px-6 xl:px-0">
             <div className="col-span-full lg:col-span-4">
               <div className="flex flex-col gap-6 animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-100 ease-in-out fill-mode-both">
-                <a href="/" className="flex items-center" aria-label="Lading"><img src="/Lading.png" alt="Lading" className="h-8 w-auto" /></a>
+                <a href="/" className="flex items-center gap-2" aria-label="Brier">
+                  <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center text-white font-bold text-xl">B</div>
+                  <span className="font-semibold text-lg tracking-tight">Brier</span>
+                </a>
                 <p className="text-base font-normal text-muted-foreground">
-                  A documentary credit that settles itself. Funded on open, paid on conforming documents, refunded at expiry — with no administrator anywhere in the contract.
+                  A WASM scoring module for Telegraph Protocol. Overcoming the champion's weakness using strict propriety and semantic recall.
                 </p>
                 <div className="flex items-center gap-4">
                   <a href="https://x.com/jadonamite" target="_blank" rel="noopener noreferrer" aria-label="X" className="text-muted-foreground hover:text-foreground">
                     <TwitterIcon />
                   </a>
-                  <a href="https://github.com/jadonamite/lading" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground">
+                  <a href="https://github.com/jadonamite/Brier" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-muted-foreground hover:text-foreground">
                     <GithubIcon />
                   </a>
                 </div>
@@ -68,7 +70,7 @@ const Footer = () => {
                   <p className="text-base font-medium text-foreground">{title}</p>
                   <ul className="flex flex-col gap-3">
                     {links.map(({ title, href }) => {
-                      const isInternal = href.startsWith("/") && !href.startsWith("//");
+                      const isInternal = href.startsWith("/") && !href.startsWith("//") && !href.startsWith("http");
                       return (
                         <li key={title}>
                           {isInternal ? (
@@ -106,35 +108,13 @@ const Footer = () => {
                       jadonamite@gmail.com
                     </a>
                   </li>
-                  <li>
-                    <p className="text-base font-normal text-muted-foreground">
-                      {activeChain.name} · chain {activeChain.id}
-                    </p>
-                  </li>
-                  {LADING_ADDRESS !== "0x0000000000000000000000000000000000000000" ? (
-                    <li>
-                      {/* The whole claim is that you do not have to take our word
-                          for it, so the contract is one click from every page. */}
-                      <a
-                        href={addrUrl(LADING_ADDRESS)}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-mono text-sm text-muted-foreground underline decoration-white/15 underline-offset-4 hover:text-emerald-300 hover:decoration-emerald-400/50"
-                      >
-                        {LADING_ADDRESS.slice(0, 10)}…{LADING_ADDRESS.slice(-8)}
-                      </a>
-                      <p className="mt-1 text-xs text-muted-foreground/70">
-                        verified contract — read it
-                      </p>
-                    </li>
-                  ) : null}
                 </ul>
               </div>
             </div>
           </div>
           <Separator orientation="horizontal" />
           <p className="text-sm font-normal text-muted-foreground text-center animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-100 ease-in-out fill-mode-both">
-            &copy; 2026 Lading · MIT licensed
+            &copy; 2026 Brier · MIT licensed
           </p>
         </div>
       </div>
