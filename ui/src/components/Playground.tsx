@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Textarea } from "@/components/ui/textarea";
 
 export function Playground() {
   const [wasmModule, setWasmModule] = useState<any>(null);
@@ -83,10 +82,10 @@ export function Playground() {
               <div className="space-y-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Ground Truth</label>
-                  <Textarea 
+                  <textarea 
                     value={groundTruth} 
                     onChange={(e) => setGroundTruth(e.target.value)}
-                    className="min-h-[100px] resize-none"
+                    className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
                     placeholder="Enter the actual truth..."
                   />
                 </div>
@@ -94,10 +93,10 @@ export function Playground() {
               <div className="space-y-4">
                 <div>
                   <label className="text-sm font-medium text-foreground mb-1.5 block">Miner Answer</label>
-                  <Textarea 
+                  <textarea 
                     value={minerAnswer} 
                     onChange={(e) => setMinerAnswer(e.target.value)}
-                    className="min-h-[100px] resize-none"
+                    className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 resize-none"
                     placeholder="Enter the miner's prediction..."
                   />
                 </div>
