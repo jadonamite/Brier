@@ -55,11 +55,11 @@ function HeroSection({ avatarList }: HeroSectionProps) {
                 className="flex items-center flex-col md:flex-row justify-center gap-8"
               >
                 <Link
-                  href="#how-it-works"
+                  href="/app"
                   className="relative inline-flex items-center text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden bg-primary text-primary-foreground hover:bg-emerald-400 hover:text-emerald-950 hover:shadow-[0_0_30px_-6px_rgba(16,185,129,0.7)]"
                 >
                   <span className="relative z-10 transition-all duration-500">
-                    Get Started
+                    Launch App
                   </span>
                   <span className="absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45 group-hover:bg-emerald-950 group-hover:text-emerald-300">
                     <ArrowUpRight size={16} />

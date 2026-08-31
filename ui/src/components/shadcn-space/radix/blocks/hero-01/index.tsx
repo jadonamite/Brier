@@ -14,6 +14,7 @@ export default function AgencyHeroSection() {
   const navigationData: NavigationSection[] = [
     { title: "Architecture", href: "/#how-it-works", isActive: true },
     { title: "Performance", href: "/#performance" },
+    { title: "Terminal", href: "/app" },
     { title: "FAQ", href: "/#faq" },
   ];
 
