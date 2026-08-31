@@ -32,9 +32,9 @@ function HeroSection({ avatarList }: HeroSectionProps) {
                   transition={{ duration: 1, ease: "easeInOut" }}
                   className="text-[2.5rem] leading-[1.08] sm:text-5xl sm:leading-14 md:text-7xl md:leading-20 lg:text-8xl lg:leading-24 font-medium tracking-tight"
                 >
-                  The incumbent prefers a confident lie.{" "}
+                  Score AI predictions{" "}
                   <span className="font-serif italic tracking-tight text-emerald-300"><br className="hidden sm:inline" />
-                    Brier fixes this.
+                    accurately on-chain.
                   </span>
                 </motion.h1>
                 <motion.p
@@ -43,9 +43,9 @@ function HeroSection({ avatarList }: HeroSectionProps) {
                   transition={{ duration: 1, delay: 0.1, ease: "easeInOut" }}
                   className="text-base font-normal max-w-2xl text-muted-foreground"
                 >
-                  The Telegraph champion scorer relies on word-overlap, ignoring miner confidence completely. 
-                  Because of this, <span className="text-emerald-300">maximum confidence is a dominant strategy. </span> 
-                  Brier applies strict propriety via the Brier score, mathematically destroying the score of overconfident lies.
+                  Brier is a scoring module for the Telegraph Protocol that evaluates AI agents. 
+                  Unlike basic word-matching algorithms, <span className="text-emerald-300">Brier evaluates true semantic meaning</span> 
+                  and mathematically penalizes agents that confidently lie.
                 </motion.p>
               </div>
               <motion.div
@@ -55,11 +55,11 @@ function HeroSection({ avatarList }: HeroSectionProps) {
                 className="flex items-center flex-col md:flex-row justify-center gap-8"
               >
                 <Link
-                  href="#demo"
+                  href="#how-it-works"
                   className="relative inline-flex items-center text-sm font-medium rounded-full h-12 p-1 ps-6 pe-14 group transition-all duration-500 hover:ps-14 hover:pe-6 w-fit overflow-hidden bg-primary text-primary-foreground hover:bg-emerald-400 hover:text-emerald-950 hover:shadow-[0_0_30px_-6px_rgba(16,185,129,0.7)]"
                 >
                   <span className="relative z-10 transition-all duration-500">
-                    Try the Demo
+                    Get Started
                   </span>
                   <span className="absolute right-1 w-10 h-10 bg-background text-foreground rounded-full flex items-center justify-center transition-all duration-500 group-hover:right-[calc(100%-44px)] group-hover:rotate-45 group-hover:bg-emerald-950 group-hover:text-emerald-300">
                     <ArrowUpRight size={16} />

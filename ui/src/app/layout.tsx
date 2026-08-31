@@ -14,7 +14,7 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Brier — A strictly proper scoring module",
+  title: "Brier | A strictly proper scoring module",
   description:
     "A no_std Rust WASM module for Telegraph Protocol. Overcomes word_overlap vulnerabilities by evaluating semantic recall and mathematically penalizing overconfident predictions using the Brier score.",
   icons: { icon: "/favicon.svg" },
