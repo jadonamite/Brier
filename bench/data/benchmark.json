@@ -1,0 +1,261 @@
+{
+  "note": "Stand-in for Telegraph's node-internal Stage-2 benchmark, which is not published. Modelled on the only example the docs give: prose Q/A, one known-good answer, one known-bad. 32 cases to match the 32/32 vs 19/32 figure in the docs' worked example. 'bad_kind' tags the failure mode so honest displacement measurement stays separable from exploit demonstration. Each case carries two distractors: `bad` (plausible-wrong near-miss, one wrong fact in the right phrasing) and `bad_unrelated` (another question's correct answer, mirroring the docs' Stage-1 cross-match). Measure the two regimes separately -- the champion behaves completely differently on each.",
+  "cases": [
+    {
+      "q": "What is the capital of France?",
+      "gt": "Paris is the capital of France.",
+      "good": "The capital of France is Paris.",
+      "bad": "Berlin is the capital of Germany.",
+      "bad_kind": "unrelated",
+      "bad_unrelated": "The largest ocean is the Pacific."
+    },
+    {
+      "q": "Who wrote the play Hamlet?",
+      "gt": "Hamlet was written by William Shakespeare.",
+      "good": "William Shakespeare wrote Hamlet.",
+      "bad": "Hamlet was written by Christopher Marlowe.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Brazilians mainly speak Portuguese."
+    },
+    {
+      "q": "What is the chemical symbol for gold?",
+      "gt": "The chemical symbol for gold is Au.",
+      "good": "Gold has the symbol Au on the periodic table.",
+      "bad": "The chemical symbol for gold is Ag.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Leonardo da Vinci is the painter of the Mona Lisa."
+    },
+    {
+      "q": "How many continents are there?",
+      "gt": "There are seven continents.",
+      "good": "Seven continents exist on Earth.",
+      "bad": "There are five continents.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Nigeria's capital city is Abuja."
+    },
+    {
+      "q": "What is the largest planet in the solar system?",
+      "gt": "Jupiter is the largest planet in the solar system.",
+      "good": "The solar system's largest planet is Jupiter.",
+      "bad": "Saturn is the largest planet in the solar system.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Six sides make a hexagon."
+    },
+    {
+      "q": "In what year did the Second World War end?",
+      "gt": "The Second World War ended in 1945.",
+      "good": "It ended in 1945.",
+      "bad": "The Second World War ended in 1918.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "During photosynthesis plants take in carbon dioxide."
+    },
+    {
+      "q": "What is the boiling point of water at sea level in Celsius?",
+      "gt": "Water boils at 100 degrees Celsius at sea level.",
+      "good": "At sea level water boils at 100 C.",
+      "bad": "Water boils at 50 degrees Celsius at sea level.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "General relativity was developed by Albert Einstein."
+    },
+    {
+      "q": "Which ocean is the largest?",
+      "gt": "The Pacific Ocean is the largest ocean.",
+      "good": "The largest ocean is the Pacific.",
+      "bad": "The Atlantic Ocean is the largest ocean.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Two is the smallest prime."
+    },
+    {
+      "q": "What language is primarily spoken in Brazil?",
+      "gt": "Portuguese is the primary language spoken in Brazil.",
+      "good": "Brazilians mainly speak Portuguese.",
+      "bad": "Spanish is the primary language spoken in Brazil.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The Red Planet is Mars."
+    },
+    {
+      "q": "Who painted the Mona Lisa?",
+      "gt": "The Mona Lisa was painted by Leonardo da Vinci.",
+      "good": "Leonardo da Vinci is the painter of the Mona Lisa.",
+      "bad": "The Mona Lisa was painted by Michelangelo.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Japan uses the yen."
+    },
+    {
+      "q": "What is the capital of Nigeria?",
+      "gt": "Abuja is the capital of Nigeria.",
+      "good": "Nigeria's capital city is Abuja.",
+      "bad": "Lagos is the capital of Nigeria.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Eleven players per side take the pitch."
+    },
+    {
+      "q": "How many sides does a hexagon have?",
+      "gt": "A hexagon has six sides.",
+      "good": "Six sides make a hexagon.",
+      "bad": "A hexagon has eight sides.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Africa's longest river is the Nile."
+    },
+    {
+      "q": "What gas do plants absorb during photosynthesis?",
+      "gt": "Plants absorb carbon dioxide during photosynthesis.",
+      "good": "During photosynthesis plants take in carbon dioxide.",
+      "bad": "Plants absorb oxygen during photosynthesis.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The first man on the moon was Neil Armstrong."
+    },
+    {
+      "q": "Who developed the theory of general relativity?",
+      "gt": "Albert Einstein developed the theory of general relativity.",
+      "good": "General relativity was developed by Albert Einstein.",
+      "bad": "Isaac Newton developed the theory of general relativity.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "It stands for deoxyribonucleic acid."
+    },
+    {
+      "q": "What is the smallest prime number?",
+      "gt": "The smallest prime number is two.",
+      "good": "Two is the smallest prime.",
+      "bad": "The smallest prime number is one.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "It was a gift from France."
+    },
+    {
+      "q": "Which planet is known as the Red Planet?",
+      "gt": "Mars is known as the Red Planet.",
+      "good": "The Red Planet is Mars.",
+      "bad": "Venus is known as the Red Planet.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The freezing point is 32 F."
+    },
+    {
+      "q": "What currency is used in Japan?",
+      "gt": "The currency used in Japan is the yen.",
+      "good": "Japan uses the yen.",
+      "bad": "The currency used in Japan is the won.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "There are 206 bones in an adult."
+    },
+    {
+      "q": "How many players are on a football team on the pitch?",
+      "gt": "A football team has eleven players on the pitch.",
+      "good": "Eleven players per side take the pitch.",
+      "bad": "A football team has nine players on the pitch.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Everest is the tallest peak above sea level."
+    },
+    {
+      "q": "What is the longest river in Africa?",
+      "gt": "The Nile is the longest river in Africa.",
+      "good": "Africa's longest river is the Nile.",
+      "bad": "The Congo is the longest river in Africa.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The element with atomic number 1 is hydrogen."
+    },
+    {
+      "q": "Who was the first person to walk on the moon?",
+      "gt": "Neil Armstrong was the first person to walk on the moon.",
+      "good": "The first man on the moon was Neil Armstrong.",
+      "bad": "Buzz Aldrin was the first person to walk on the moon.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Guacamole is made mostly from avocado."
+    },
+    {
+      "q": "What does DNA stand for?",
+      "gt": "DNA stands for deoxyribonucleic acid.",
+      "good": "It stands for deoxyribonucleic acid.",
+      "bad": "DNA stands for dinitrogen acid.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "You will find the Colosseum in Rome, Italy."
+    },
+    {
+      "q": "Which country gifted the Statue of Liberty to the United States?",
+      "gt": "France gifted the Statue of Liberty to the United States.",
+      "good": "It was a gift from France.",
+      "bad": "Britain gifted the Statue of Liberty to the United States.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Air molecules scatter short wavelengths far more than long ones, so blue light reaches our eyes from all directions."
+    },
+    {
+      "q": "What is the freezing point of water in Fahrenheit?",
+      "gt": "Water freezes at 32 degrees Fahrenheit.",
+      "good": "The freezing point is 32 F.",
+      "bad": "Water freezes at 100 degrees Fahrenheit.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The moon's gravity, helped by the sun's, tugs on the oceans and raises the tides."
+    },
+    {
+      "q": "How many bones are in the adult human body?",
+      "gt": "The adult human body has 206 bones.",
+      "good": "There are 206 bones in an adult.",
+      "bad": "The adult human body has 300 bones.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Weather is what happens day to day; climate is the long-run average of that weather over many years."
+    },
+    {
+      "q": "What is the tallest mountain above sea level?",
+      "gt": "Mount Everest is the tallest mountain above sea level.",
+      "good": "Everest is the tallest peak above sea level.",
+      "bad": "K2 is the tallest mountain above sea level.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "As chlorophyll degrades in the fall, the underlying carotenoid pigments become visible."
+    },
+    {
+      "q": "Which element has the atomic number one?",
+      "gt": "Hydrogen has the atomic number one.",
+      "good": "The element with atomic number 1 is hydrogen.",
+      "bad": "Helium has the atomic number one.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The capital of France is Paris."
+    },
+    {
+      "q": "What is the main ingredient in guacamole?",
+      "gt": "The main ingredient in guacamole is avocado.",
+      "good": "Guacamole is made mostly from avocado.",
+      "bad": "The main ingredient in guacamole is tomato.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "William Shakespeare wrote Hamlet."
+    },
+    {
+      "q": "In which city is the Colosseum located?",
+      "gt": "The Colosseum is located in Rome.",
+      "good": "You will find the Colosseum in Rome, Italy.",
+      "bad": "The Colosseum is located in Athens.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Gold has the symbol Au on the periodic table."
+    },
+    {
+      "q": "Summarize why the sky appears blue.",
+      "gt": "The sky appears blue because shorter blue wavelengths of sunlight are scattered more strongly by air molecules than longer wavelengths.",
+      "good": "Air molecules scatter short wavelengths far more than long ones, so blue light reaches our eyes from all directions.",
+      "bad": "The sky appears blue because it reflects the color of the oceans below it.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "Seven continents exist on Earth."
+    },
+    {
+      "q": "Explain what causes ocean tides.",
+      "gt": "Ocean tides are caused mainly by the gravitational pull of the moon and to a lesser extent the sun on the Earth's water.",
+      "good": "The moon's gravity, helped by the sun's, tugs on the oceans and raises the tides.",
+      "bad": "Ocean tides are caused by underwater volcanoes heating the water and making it rise.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "The solar system's largest planet is Jupiter."
+    },
+    {
+      "q": "What is the difference between weather and climate?",
+      "gt": "Weather is the state of the atmosphere over hours to days, while climate is the average of weather over decades.",
+      "good": "Weather is what happens day to day; climate is the long-run average of that weather over many years.",
+      "bad": "Weather and climate are the same thing measured by different instruments.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "It ended in 1945."
+    },
+    {
+      "q": "Why do leaves change color in autumn?",
+      "gt": "Leaves change color in autumn because chlorophyll breaks down, revealing the yellow and orange pigments already present.",
+      "good": "As chlorophyll degrades in the fall, the underlying carotenoid pigments become visible.",
+      "bad": "Leaves change color in autumn because the cold freezes the water inside them and stains them brown.",
+      "bad_kind": "plausible_wrong",
+      "bad_unrelated": "At sea level water boils at 100 C."
+    }
+  ]
+}
