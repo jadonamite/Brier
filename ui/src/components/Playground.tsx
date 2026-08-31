@@ -4,7 +4,7 @@ import { useEffect, useState, useRef } from "react";
 import { Card, CardContent, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
 import { gsap } from "gsap";
 import { useGSAP } from "@gsap/react";
-import { Activity, CheckCircle, Warning, Download, Target, Brain, MathOperations } from "@phosphor-icons/react";
+import { Sliders, CheckCircle, Warning, Download, Brain, Calculator } from "@phosphor-icons/react";
 
 gsap.registerPlugin(useGSAP);
 
@@ -157,7 +157,7 @@ export function Playground() {
           <Card className="border-border/40 shadow-sm playground-stagger">
             <CardHeader className="border-b border-border/40 bg-muted/20 pb-4">
               <CardTitle className="text-base font-semibold flex items-center gap-2">
-                <Activity size={20} weight="duotone" className="text-emerald-500" /> Evaluation Configuration
+                <Sliders size={20} weight="duotone" className="text-emerald-500" /> Evaluation Configuration
               </CardTitle>
             </CardHeader>
             <CardContent className="p-6 space-y-6">
@@ -237,7 +237,7 @@ export function Playground() {
               {/* BREAKDOWN SECTION - This explains what is happening to the user */}
               <div className="mt-6 space-y-4">
                 <h4 className="text-xs font-bold uppercase tracking-wider text-muted-foreground flex items-center gap-2">
-                  <MathOperations size={16} /> Score Breakdown
+                  <Calculator size={16} /> Score Breakdown
                 </h4>
                 
                 <div className="space-y-3 text-sm">
